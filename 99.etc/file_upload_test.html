@@ -1,0 +1,12 @@
+<!DOCTYPE HTML><html>
+  <head>
+    <title>파일 업로드/결과 데이터 테스트</title>
+  </head>
+  <body>
+    <p>test_data.csv 파일을 업로드/전송하여 예측 결과 데이터 결과를 확인해주세요.</p>
+    <form action="http://35.194.117.145:8080/upload_test_data" method="POST" enctype= "multipart/form-data">
+       <input type="file" name="test_data_file"/>
+       <input type="submit" value="전송"/>
+    </form>
+  </body>
+</html>
