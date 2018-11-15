@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>NC soft coding test</title>
+  <link href="vendors/css/flag-icon.min.css" rel="stylesheet">
+  <link href="vendors/css/font-awesome.min.css" rel="stylesheet">
+  <link href="vendors/css/simple-line-icons.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="vendors/css/pace.min.css" rel="stylesheet">
+  <style>
+    .app-body {
+      margin-top: 20px
+    }
+
+    .absolute-center {
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+    }
+
+    svg {
+      font-family: Sans-Serif, Arial;
+    }
+    
+    /* .line {
+      stroke-width: 2;
+      fill: none;
+    } */
+    .line {
+      fill: none;
+      stroke: green;
+      stroke-width: 1px;
+    }
+
+    .axis path {
+      stroke: black;
+    }
+
+    .text {
+      font-size: 12px;
+    }
+
+    .title-text {
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body class="app">
+  <div class="app-body" id="app-body">
+    <main class="main">
+      <div class="container-fluid">
+        <div class="animated fadeIn">
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="tab_insert" data-toggle="tab" href="#insert" role="tab" aria-controls="home">데이터입력</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="tab_result" data-toggle="tab" href="#result" role="tab" aria-controls="profile">예측결과</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="insert" role="tabpanel">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <strong>파일입력</strong>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <input type="file" class="form-control" id="test_data_file" name="test_data_file">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <button type="button" class="btn btn-primary btn-block" id="show-csv">보기</button>
+                                </div>
+                                <div class="col-md-6">
+                                  <button type="button" class="btn btn-success btn-block" id="send-csv">입력</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--/.row-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <div class="row">
+                            <div class="col-md-6"><strong>데이터보기</strong></div>
+                            <div class="col-md-6 text-right">업로드 csv 파일 출력 테이블</div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                                <thead id="step1-table-header">
+                                </thead>
+                                <tbody id="step1-table-body">
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <!--/.row-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="result" role="tabpanel">
+                  <div class="row">
+                    <div class="col-sm-12">
+                        <div id="chart"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                        <thead id="step2-table-header">
+                          <th>time</th>
+                          <th>anormal_flag</th>
+                          <th>value</th>
+                          <th>fit</th>
+                          <th>lwr</th>
+                          <th>upr</th>
+                          <th>residual</th>
+                          <th>cumul_lwr</th>
+                          <th>cumul_upr</th>
+                          <th>cumulative_sum_of_residual</th>
+                        </thead>
+                        <tbody id="step2-table-body">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <footer class="app-footer">
+    <div class="ml-auto">
+      <span>boojongmin</span>
+    </div>
+  </footer>
+
+  <img src="./img/loader.gif" style="display: none;" class="absolute-center" id="progress-img" />
+
+  <script src="vendors/js/jquery.min.js"></script>
+  <script src="vendors/js/popper.min.js"></script>
+  <script src="vendors/js/bootstrap.min.js"></script>
+  <script src="vendors/js/pace.min.js"></script>
+  <script src="vendors/js/perfect-scrollbar.min.js"></script>
+  <script src="vendors/js/coreui.min.js"></script>
+  <script type = "text/javascript" src = "./js/d3.v4.min.js"></script>
+  <script src="./step-common.js"></script>
+  <script src="./step1.js"></script>
+  <script src="./step2.js"></script>
+</body>
+
+</html>
