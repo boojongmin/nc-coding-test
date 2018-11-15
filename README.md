@@ -32,5 +32,19 @@
 - 02.front-server
   - server
     ```shell
-    asdf
+    cd nc-test-server
+    mvn spring-boot:run #8080 port로 서버 실행
     ```
+  - front
+    ```shell
+    cd nc-test-front
+    # 1. npm 사용시
+    npm install
+    npm run serve
+
+    # 2. yarn 사용시
+    yarn install
+    yarn run serve #8001 port로 webpack-dev 서버 실행
+    ```
+  - webbrowser
+    - http://localhost:8001   
